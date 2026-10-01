@@ -5,7 +5,6 @@ interface Service {
     id: number;
     nama_layanan: string;
     deskripsi: string;
-    estimasi_harga: number;
     estimasi_durasi: string;
 }
 
@@ -53,8 +52,15 @@ export default function Services({ services, web_settings }: ServicesProps) {
                                     
                                     <div className="bg-gray-50 rounded-lg p-5 space-y-3 mb-8">
                                         <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-                                            <span className="text-gray-500 font-medium">Estimasi Harga Mulai:</span>
-                                            <span className="font-bold text-gray-900">Rp {service.estimasi_harga.toLocaleString('id-ID')}</span>
+                                            <span className="text-gray-500 font-medium">Harga:</span>
+                                            <a 
+                                                href={`https://wa.me/${web_settings?.no_wa_utama || ''}?text=${encodeURIComponent(`Halo, saya ingin berkonsultasi mengenai harga untuk layanan ${service.nama_layanan}.`)}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                                            >
+                                                Konsultasi via WA
+                                            </a>
                                         </div>
                                         <div className="flex items-center justify-between pt-1">
                                             <span className="text-gray-500 font-medium">Estimasi Waktu:</span>

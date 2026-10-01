@@ -27,7 +27,6 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'nama_layanan' => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'estimasi_harga' => 'required|numeric|min:0',
             'estimasi_durasi' => 'required|string|max:255',
         ]);
 
@@ -48,7 +47,6 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'nama_layanan' => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'estimasi_harga' => 'required|numeric|min:0',
             'estimasi_durasi' => 'required|string|max:255',
         ]);
 

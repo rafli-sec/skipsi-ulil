@@ -45,9 +45,9 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
     // State for Hero Slider
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
-        web_settings?.hero_image_path ? `/storage/${web_settings.hero_image_path}` : "https://images.unsplash.com/photo-1541888087425-ce81dfc46928?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        web_settings?.hero_image_2_path ? `/storage/${web_settings.hero_image_2_path}` : "https://images.unsplash.com/photo-1574347717013-eb1c6bc12052?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        web_settings?.hero_image_3_path ? `/storage/${web_settings.hero_image_3_path}` : "https://images.unsplash.com/photo-1504307651254-35680f356f58?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        web_settings?.hero_image_path ? `/storage/${web_settings.hero_image_path}` : "https://images.unsplash.com/photo-1541888087425-ce81dfc46928?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60",
+        web_settings?.hero_image_2_path ? `/storage/${web_settings.hero_image_2_path}` : "https://images.unsplash.com/photo-1574347717013-eb1c6bc12052?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60",
+        web_settings?.hero_image_3_path ? `/storage/${web_settings.hero_image_3_path}` : "https://images.unsplash.com/photo-1504307651254-35680f356f58?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60"
     ];
 
     useEffect(() => {
@@ -63,9 +63,8 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
         <MainLayout>
             <Head title="Beranda" />
 
-            {/* 1. Hero Section with Slider */}
+            
             <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-                {/* Background Slider */}
                 {slides.map((slide, index) => (
                     <div 
                         key={index}
@@ -75,13 +74,13 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
                         <img 
                             src={slide} 
                             alt={`Slide ${index + 1}`} 
+                            loading={index === 0 ? "eager" : "lazy"}
                             className="w-full h-full object-cover transform scale-105 transition-transform duration-[10000ms] ease-out"
                             style={{ transform: index === currentSlide ? 'scale(1.1)' : 'scale(1)' }}
                         />
                     </div>
                 ))}
 
-                {/* Hero Content */}
                 <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
                     <span className="inline-block py-1 px-4 rounded-full bg-matcha/30 text-cream border border-matcha-light/30 text-sm font-medium tracking-wide mb-6 backdrop-blur-sm">
                         KONTRAKTOR PENGEBORAN SULAWESI TENGGARA
@@ -122,13 +121,13 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
                         <div className="relative">
                             <div className="absolute -inset-4 bg-matcha rounded-3xl transform rotate-3 z-0"></div>
                             <img 
-                                src="https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                src="/tim1.jpeg" 
                                 alt="Tentang Perusahaan" 
+                                loading="lazy"
                                 className="relative z-10 rounded-2xl shadow-xl w-full h-[400px] object-cover"
                             />
-                            {/* Floating Badge */}
                             <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl z-20 border border-gray-100">
-                                <p className="text-4xl font-extrabold text-forest mb-1">10+</p>
+                                <p className="text-4xl font-extrabold text-forest mb-1">5+</p>
                                 <p className="text-gray-600 font-medium">Tahun Pengalaman</p>
                             </div>
                         </div>
@@ -143,7 +142,7 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
                                     'Operator mesin bor berpengalaman',
                                     'Armada rig dan kompresor siap jalan',
                                     'Bekerja sesuai standar prosedur keselamatan',
-                                    'Anggaran transparan dan bersaing'
+                                  
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
                                         <div className="w-6 h-6 rounded-full bg-matcha-light/30 text-forest flex items-center justify-center shrink-0">

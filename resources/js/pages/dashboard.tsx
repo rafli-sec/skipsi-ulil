@@ -12,7 +12,7 @@ interface Metrics {
 interface Order {
     id: number;
     nama_pelanggan: string;
-    no_wa: string;
+    no_hp: string;
     service_id: number;
     tanggal_pengerjaan: string;
     status: 'Diproses' | 'Selesai';
@@ -94,7 +94,7 @@ export default function Dashboard({ metrics, recentOrders }: DashboardProps) {
                                             <tr key={order.id} className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
                                                 <td className="p-4 align-middle font-medium">
                                                     <div>{order.nama_pelanggan}</div>
-                                                    <div className="text-xs text-muted-foreground">{order.no_wa}</div>
+                                                    <div className="text-xs text-muted-foreground">{order.no_hp}</div>
                                                 </td>
                                                 <td className="p-4 align-middle">{order.service.nama_layanan}</td>
                                                 <td className="p-4 align-middle">

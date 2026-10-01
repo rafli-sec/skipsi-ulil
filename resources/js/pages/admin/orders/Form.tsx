@@ -13,9 +13,10 @@ interface Service {
 interface Order {
     id: number;
     nama_pelanggan: string;
-    no_wa: string;
+    no_hp: string;
     service_id: number;
     tanggal_pengerjaan: string;
+    tanggal_selesai?: string;
     status: 'Diproses' | 'Selesai';
 }
 
@@ -31,9 +32,10 @@ export default function Form({ order, services }: { order?: Order; services: Ser
 
     const { data, setData, post, put, processing, errors } = useForm({
         nama_pelanggan: order?.nama_pelanggan || '',
-        no_wa: order?.no_wa || '',
+        no_hp: order?.no_hp || '',
         service_id: order?.service_id || (services.length > 0 ? services[0].id : ''),
         tanggal_pengerjaan: formatDateForInput(order?.tanggal_pengerjaan) || '',
+        tanggal_selesai: formatDateForInput(order?.tanggal_selesai) || '',
         status: order?.status || 'Diproses',
     });
 
@@ -79,14 +81,14 @@ export default function Form({ order, services }: { order?: Order; services: Ser
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="no_wa">Nomor WhatsApp</Label>
+                                <Label htmlFor="no_hp">Nomor WhatsApp</Label>
                                 <Input
-                                    id="no_wa"
-                                    value={data.no_wa}
-                                    onChange={(e) => setData('no_wa', e.target.value)}
+                                    id="no_hp"
+                                    value={data.no_hp}
+                                    onChange={(e) => setData('no_hp', e.target.value)}
                                     placeholder="Contoh: 081234567890"
                                 />
-                                <InputError message={errors.no_wa} />
+                                <InputError message={errors.no_hp} />
                             </div>
 
                             <div className="space-y-2">
@@ -130,6 +132,20 @@ export default function Form({ order, services }: { order?: Order; services: Ser
                                 </select>
                                 <InputError message={errors.status} />
                             </div>
+
+                            {data.status === 'Selesai' && (
+                                <div className="space-y-2">
+                                    <Label htmlFor="tanggal_selesai">Tanggal Selesai</Label>
+                                    <Input
+                                        id="tanggal_selesai"
+                                        type="date"
+                                        value={data.tanggal_selesai}
+                                        onChange={(e) => setData('tanggal_selesai', e.target.value)}
+                                        required={data.status === 'Selesai'}
+                                    />
+                                    <InputError message={errors.tanggal_selesai} />
+                                </div>
+                            )}
                         </div>
 
                         <div className="flex items-center gap-4 pt-4">

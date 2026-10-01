@@ -1,4 +1,4 @@
-import { Link, router } from '@inertiajs/react';
+import { Link, router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
 interface MainLayoutProps {
@@ -7,6 +7,7 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { auth } = usePage().props as any;
 
     const toggleMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -30,14 +31,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     <div className="flex justify-between h-20">
                         <div className="flex items-center gap-2 group">
                             <Link 
-                                href="/login" 
-                                className="flex-shrink-0 w-10 h-10 bg-forest text-white rounded-xl flex items-center justify-center font-bold text-xl shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5"
-                                title="Login Admin"
+                                href={auth?.user ? "/dashboard" : "/"} 
+                                className="font-extrabold text-xl tracking-tight text-gray-900 hover:opacity-80 transition-opacity"
                             >
-                                A
-                            </Link>
-                            <Link href="/" className="font-extrabold text-xl tracking-tight text-gray-900 hover:opacity-80 transition-opacity">
-                                PT Aulia Mutiara
+                                PT Aulia Mutiara Drilling
                             </Link>
                         </div>
                         

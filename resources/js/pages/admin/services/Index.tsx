@@ -7,7 +7,6 @@ interface Service {
     id: number;
     nama_layanan: string;
     deskripsi: string;
-    estimasi_harga: number;
     estimasi_durasi: string;
 }
 
@@ -43,7 +42,7 @@ export default function Index({ services }: { services: Service[] }) {
                             <thead className="[&_tr]:border-b">
                                 <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
                                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Nama Layanan</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Estimasi Harga</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Harga</th>
                                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Estimasi Durasi</th>
                                     <th className="h-12 px-4 text-right align-middle font-medium text-muted-foreground">Aksi</th>
                                 </tr>
@@ -58,13 +57,7 @@ export default function Index({ services }: { services: Service[] }) {
                                                     {service.deskripsi}
                                                 </div>
                                             </td>
-                                            <td className="p-4 align-middle">
-                                                {new Intl.NumberFormat('id-ID', {
-                                                    style: 'currency',
-                                                    currency: 'IDR',
-                                                    maximumFractionDigits: 0,
-                                                }).format(service.estimasi_harga)}
-                                            </td>
+                                            <td className="p-4 align-middle text-emerald-600 font-medium">Konsultasi via WA</td>
                                             <td className="p-4 align-middle">{service.estimasi_durasi}</td>
                                             <td className="p-4 text-right align-middle">
                                                 <div className="flex items-center justify-end gap-2">

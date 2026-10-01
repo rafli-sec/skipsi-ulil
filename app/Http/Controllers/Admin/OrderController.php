@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('service')->latest()->get();
+        $orders = Order::with(['service', 'review'])->latest()->get();
         return Inertia::render('admin/orders/Index', [
             'orders' => $orders
         ]);
@@ -32,6 +32,7 @@ class OrderController extends Controller
             'no_hp' => 'required|string|max:20',
             'service_id' => 'required|exists:services,id',
             'tanggal_pengerjaan' => 'nullable|date',
+            'tanggal_selesai' => 'nullable|date',
             'status' => 'required|in:Menunggu Verifikasi,Diproses,Selesai',
         ]);
 
@@ -55,6 +56,7 @@ class OrderController extends Controller
             'no_hp' => 'required|string|max:20',
             'service_id' => 'required|exists:services,id',
             'tanggal_pengerjaan' => 'nullable|date',
+            'tanggal_selesai' => 'nullable|date',
             'status' => 'required|in:Menunggu Verifikasi,Diproses,Selesai',
         ]);
 

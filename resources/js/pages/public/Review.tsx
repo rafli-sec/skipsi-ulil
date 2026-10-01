@@ -15,7 +15,7 @@ export default function Review({ order }: { order: any }) {
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
-        post(`/review/${order.id}`);
+        post(`/review/${order.uuid}`);
     };
 
     return (

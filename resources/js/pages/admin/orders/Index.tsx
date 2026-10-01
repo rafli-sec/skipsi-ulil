@@ -1,12 +1,13 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { Plus, Edit, Trash2 } from 'lucide-react';
+import { Plus, Edit, Trash2, MessageCircle } from 'lucide-react';
 
 interface Order {
     id: number;
+    uuid: string;
     nama_pelanggan: string;
-    no_wa: string;
+    no_hp: string;
     service_id: number;
     tanggal_pengerjaan: string;
     status: 'Diproses' | 'Selesai';
@@ -14,6 +15,9 @@ interface Order {
         id: number;
         nama_layanan: string;
     };
+    review?: {
+        id: number;
+    } | null;
 }
 
 export default function Index({ orders }: { orders: Order[] }) {
@@ -23,6 +27,21 @@ export default function Index({ orders }: { orders: Order[] }) {
         if (confirm('Yakin ingin menghapus jadwal ini?')) {
             destroy(`/admin/orders/${id}`);
         }
+    };
+
+    const handleKirimWA = (order: Order) => {
+        let no_hp = order.no_hp;
+        if (no_hp.startsWith('0')) {
+            no_hp = '62' + no_hp.substring(1);
+        } else if (no_hp.startsWith('+62')) {
+            no_hp = no_hp.substring(1);
+        }
+        
+        const reviewUrl = `${window.location.origin}/review/${order.uuid}`;
+        const message = `Halo Bpk/Ibu ${order.nama_pelanggan},\n\nTerima kasih telah mempercayakan layanan ${order.service?.nama_layanan || 'kami'} kepada PT Aulia Mutiara Drilling.\n\nKarena pengerjaan telah selesai, mohon kesediaannya meluangkan waktu sebentar untuk memberikan ulasan pelayanan kami melalui tautan berikut:\n${reviewUrl}\n\nTerima kasih!`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/${no_hp}?text=${encodedMessage}`, '_blank');
     };
 
     return (
@@ -61,7 +80,7 @@ export default function Index({ orders }: { orders: Order[] }) {
                                             <td className="p-4 align-middle font-medium">
                                                 {order.nama_pelanggan}
                                                 <div className="mt-1 text-xs font-normal text-muted-foreground">
-                                                    {order.no_wa}
+                                                    {order.no_hp}
                                                 </div>
                                             </td>
                                             <td className="p-4 align-middle">
@@ -88,6 +107,22 @@ export default function Index({ orders }: { orders: Order[] }) {
                                             </td>
                                             <td className="p-4 text-right align-middle">
                                                 <div className="flex items-center justify-end gap-2">
+                                                    {order.status === 'Selesai' && !order.review && (
+                                                        <Button
+                                                            variant="default"
+                                                            size="sm"
+                                                            className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
+                                                            onClick={() => handleKirimWA(order)}
+                                                        >
+                                                            <MessageCircle className="mr-1.5 size-4" />
+                                                            Minta Ulasan
+                                                        </Button>
+                                                    )}
+                                                    {order.status === 'Selesai' && order.review && (
+                                                        <div className="inline-flex items-center text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200 mr-2">
+                                                            ✅ Sudah Direview
+                                                        </div>
+                                                    )}
                                                     <Button variant="outline" size="icon" asChild>
                                                         <Link href={`/admin/orders/${order.id}/edit`}>
                                                             <Edit className="size-4 text-muted-foreground" />

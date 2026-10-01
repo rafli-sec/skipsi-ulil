@@ -30,9 +30,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/reviews', \App\Http\Controllers\Admin\ReviewController::class)->except(['create', 'store', 'show']);
 });
 
-// Route Publik untuk Review (menggunakan order id atau token)
-Route::get('/review/{order}', [\App\Http\Controllers\PublicReviewController::class, 'create'])->name('review.create');
-Route::post('/review/{order}', [\App\Http\Controllers\PublicReviewController::class, 'store'])->name('review.store');
+// Route Publik untuk Review (menggunakan order uuid)
+Route::get('/review/{order:uuid}', [\App\Http\Controllers\PublicReviewController::class, 'create'])->name('review.create');
+Route::post('/review/{order:uuid}', [\App\Http\Controllers\PublicReviewController::class, 'store'])->name('review.store');
 
 // Route Publik untuk Checkout
 Route::get('/checkout', [\App\Http\Controllers\PublicCheckoutController::class, 'create'])->name('checkout.create');

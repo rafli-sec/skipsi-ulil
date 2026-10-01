@@ -10,7 +10,6 @@ interface Service {
     id: number;
     nama_layanan: string;
     deskripsi: string;
-    estimasi_harga: number;
     estimasi_durasi: string;
 }
 
@@ -20,7 +19,6 @@ export default function Form({ service }: { service?: Service }) {
     const { data, setData, post, put, processing, errors } = useForm({
         nama_layanan: service?.nama_layanan || '',
         deskripsi: service?.deskripsi || '',
-        estimasi_harga: service?.estimasi_harga || '',
         estimasi_durasi: service?.estimasi_durasi || '',
     });
 
@@ -77,30 +75,15 @@ export default function Form({ service }: { service?: Service }) {
                                 <InputError message={errors.deskripsi} />
                             </div>
 
-                            <div className="grid gap-6 md:grid-cols-2">
-                                <div className="space-y-2">
-                                    <Label htmlFor="estimasi_harga">Estimasi Harga (Rp)</Label>
-                                    <Input
-                                        id="estimasi_harga"
-                                        type="number"
-                                        min="0"
-                                        value={data.estimasi_harga}
-                                        onChange={(e) => setData('estimasi_harga', e.target.value)}
-                                        placeholder="Contoh: 5000000"
-                                    />
-                                    <InputError message={errors.estimasi_harga} />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="estimasi_durasi">Estimasi Durasi Pengerjaan</Label>
-                                    <Input
-                                        id="estimasi_durasi"
-                                        value={data.estimasi_durasi}
-                                        onChange={(e) => setData('estimasi_durasi', e.target.value)}
-                                        placeholder="Contoh: 3-5 Hari"
-                                    />
-                                    <InputError message={errors.estimasi_durasi} />
-                                </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="estimasi_durasi">Estimasi Durasi Pengerjaan</Label>
+                                <Input
+                                    id="estimasi_durasi"
+                                    value={data.estimasi_durasi}
+                                    onChange={(e) => setData('estimasi_durasi', e.target.value)}
+                                    placeholder="Contoh: 3-5 Hari"
+                                />
+                                <InputError message={errors.estimasi_durasi} />
                             </div>
                         </div>
 
