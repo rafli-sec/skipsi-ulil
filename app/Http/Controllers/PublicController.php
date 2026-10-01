@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Order;
 use App\Models\WebSetting;
 use App\Models\Review;
+use App\Models\Gallery;
 
 class PublicController extends Controller
 {
@@ -26,6 +27,13 @@ class PublicController extends Controller
         return Inertia::render('public/Services', [
             'services' => Service::all(),
             'web_settings' => WebSetting::first(),
+        ]);
+    }
+
+    public function gallery()
+    {
+        return Inertia::render('public/Gallery', [
+            'galleries' => Gallery::orderByDesc('project_date')->latest()->get(),
         ]);
     }
 }

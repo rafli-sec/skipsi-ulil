@@ -48,61 +48,61 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Dummy Orders
-        $order1 = \App\Models\Order::create([
-            'nama_pelanggan' => 'Bapak Budi',
-            'no_wa' => '081234567891',
-            'service_id' => 1,
-            'tanggal_pengerjaan' => now()->addDays(2),
-            'status' => 'Diproses',
-        ]);
+        // $order1 = \App\Models\Order::create([
+        //     'nama_pelanggan' => 'Bapak Budi',
+        //     'no_wa' => '081234567891',
+        //     'service_id' => 1,
+        //     'tanggal_pengerjaan' => now()->addDays(2),
+        //     'status' => 'Diproses',
+        // ]);
 
-        $order2 = \App\Models\Order::create([
-            'nama_pelanggan' => 'PT Makmur Jaya',
-            'no_wa' => '081234567892',
-            'service_id' => 2,
-            'tanggal_pengerjaan' => now()->addDays(10),
-            'status' => 'Diproses',
-        ]);
+        // $order2 = \App\Models\Order::create([
+        //     'nama_pelanggan' => 'PT Makmur Jaya',
+        //     'no_wa' => '081234567892',
+        //     'service_id' => 2,
+        //     'tanggal_pengerjaan' => now()->addDays(10),
+        //     'status' => 'Diproses',
+        // ]);
 
-        $order3 = \App\Models\Order::create([
-            'nama_pelanggan' => 'Bapak Andi',
-            'no_wa' => '081234567893',
-            'service_id' => 1,
-            'tanggal_pengerjaan' => now()->subDays(5),
-            'status' => 'Selesai',
-        ]);
+        // $order3 = \App\Models\Order::create([
+        //     'nama_pelanggan' => 'Bapak Andi',
+        //     'no_wa' => '081234567893',
+        //     'service_id' => 1,
+        //     'tanggal_pengerjaan' => now()->subDays(5),
+        //     'status' => 'Selesai',
+        // ]);
 
         // Dummy Reviews (Only for completed/existing orders)
-        \App\Models\Review::create([
-            'order_id' => $order3->id,
-            'nama_reviewer' => 'Bapak Andi',
-            'rating' => 5,
-            'komentar' => 'Pekerjaan sangat cepat dan rapi. Air sumur bor yang dihasilkan sangat bersih dan mengalir deras. Sangat direkomendasikan!',
-            'is_displayed' => true,
-        ]);
+        // \App\Models\Review::create([
+        //     'order_id' => $order3->id,
+        //     'nama_reviewer' => 'Bapak Andi',
+        //     'rating' => 5,
+        //     'komentar' => 'Pekerjaan sangat cepat dan rapi. Air sumur bor yang dihasilkan sangat bersih dan mengalir deras. Sangat direkomendasikan!',
+        //     'is_displayed' => true,
+        // ]);
 
-        \App\Models\Review::create([
-            'order_id' => $order1->id,
-            'nama_reviewer' => 'Ibu Siti',
-            'rating' => 4,
-            'komentar' => 'Pelayanan ramah, teknisi sangat profesional dalam menjelaskan tahapan pengeboran.',
-            'is_displayed' => true,
-        ]);
+        // \App\Models\Review::create([
+        //     'order_id' => $order1->id,
+        //     'nama_reviewer' => 'Ibu Siti',
+        //     'rating' => 4,
+        //     'komentar' => 'Pelayanan ramah, teknisi sangat profesional dalam menjelaskan tahapan pengeboran.',
+        //     'is_displayed' => true,
+        // ]);
 
-        \App\Models\Review::create([
-            'order_id' => $order2->id,
-            'nama_reviewer' => 'PT Makmur Jaya',
-            'rating' => 5,
-            'komentar' => 'Tim eksplorasi sangat tangguh dan berpengalaman. Data yang diberikan sangat akurat.',
-            'is_displayed' => true, // displayed
-        ]);
+        // \App\Models\Review::create([
+        //     'order_id' => $order2->id,
+        //     'nama_reviewer' => 'PT Makmur Jaya',
+        //     'rating' => 5,
+        //     'komentar' => 'Tim eksplorasi sangat tangguh dan berpengalaman. Data yang diberikan sangat akurat.',
+        //     'is_displayed' => true, // displayed
+        // ]);
         
-        \App\Models\Review::create([
-            'order_id' => $order1->id,
-            'nama_reviewer' => 'Hamba Allah',
-            'rating' => 3,
-            'komentar' => 'Pekerjaan lumayan, tapi sedikit terlambat dari jadwal.',
-            'is_displayed' => false, // This shouldn't be displayed
-        ]);
+        // \App\Models\Review::create([
+        //     'order_id' => $order1->id,
+        //     'nama_reviewer' => 'Hamba Allah',
+        //     'rating' => 3,
+        //     'komentar' => 'Pekerjaan lumayan, tapi sedikit terlambat dari jadwal.',
+        //     'is_displayed' => false, // This shouldn't be displayed
+        // ]);
     }
 }

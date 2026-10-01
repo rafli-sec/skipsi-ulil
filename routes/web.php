@@ -7,7 +7,7 @@ use App\Http\Controllers\PublicController;
 Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::inertia('/about', 'public/About')->name('about');
 Route::get('/services', [PublicController::class, 'services'])->name('services');
-Route::inertia('/gallery', 'public/Gallery')->name('gallery');
+Route::get('/gallery', [PublicController::class, 'gallery'])->name('gallery');
 Route::inertia('/contact', 'public/Contact')->name('contact');
 
 Route::middleware(['auth'])->group(function () {
