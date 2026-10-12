@@ -70,12 +70,22 @@ export default function Services({ services, web_settings }: ServicesProps) {
                                 </div>
                                 
                                 <div className="p-6 bg-gray-50 border-t border-gray-100">
+                                    {/* 
                                     <Link
                                         href={`/checkout?service_id=${service.id}`}
                                         className="flex items-center justify-center w-full bg-forest hover:bg-[#283618] text-cream font-bold py-4 px-6 rounded-xl transition-colors gap-2 shadow-sm"
                                     >
                                         Pesan Sekarang
                                     </Link>
+                                    */}
+                                    <a
+                                        href={`https://wa.me/${web_settings?.no_wa_utama || ''}?text=${encodeURIComponent(`Halo, saya ingin memesan layanan ${service.nama_layanan}.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center w-full bg-forest hover:bg-[#283618] text-cream font-bold py-4 px-6 rounded-xl transition-colors gap-2 shadow-sm"
+                                    >
+                                        Pesan Sekarang via WA
+                                    </a>
                                 </div>
                             </div>
                         ))

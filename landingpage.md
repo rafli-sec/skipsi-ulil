@@ -1,6 +1,6 @@
 Bertindaklah sebagai Senior Fullstack Developer. Tolong buatkan saya struktur Frontend (Layout dan Halaman) untuk Sistem Informasi Jasa Sumur Bor menggunakan React 19, Inertia.js v3, TypeScript, dan Tailwind CSS v4. 
 
-Website ini merupakan sistem informasi untuk PT Aulia Mutiara Drilling. Konsepnya adalah Multi-page SPA (Single Page Application), di mana antar halaman dipisahkan namun perpindahannya instan tanpa reload browser.
+Website ini merupakan sistem informasi untuk CV. Aisyah Mutiara Drilling. Konsepnya adalah Multi-page SPA (Single Page Application), di mana antar halaman dipisahkan namun perpindahannya instan tanpa reload browser.
 
 TUGAS UTAMA:
 Buatkan struktur komponen React dengan spesifikasi berikut:
@@ -13,7 +13,7 @@ Buatkan struktur komponen React dengan spesifikasi berikut:
 2. HALAMAN PUBLIK (Pages)
 Tolong buatkan struktur dasar dari 5 halaman terpisah ini (pastikan semuanya dibungkus oleh MainLayout):
 - Welcome.tsx (Beranda): Menampilkan hero section penyambutan, ringkasan profil perusahaan, dan daftar jadwal pengerjaan (kalender statis).
-- About.tsx (Tentang Kami): Menampilkan sejarah perusahaan serta visi & misi PT Aulia Mutiara Drilling.
+- About.tsx (Tentang Kami): Menampilkan sejarah perusahaan serta visi & misi CV. Aisyah Mutiara Drilling.
 - Services.tsx (Layanan): Menampilkan katalog jasa yang berfokus pada Jasa Sumur Bor dan Eksplorasi Nikel. PENTING: Jangan buat form pemesanan. Cukup buatkan tombol "Pesan Sekarang" menggunakan tag <a> biasa yang mengarahkan pengguna ke tautan WhatsApp (wa.me) admin.
 - Gallery.tsx (Pengalaman Kerja): Menampilkan grid foto dokumentasi pekerjaan pengeboran (gunakan gambar placeholder sementara).
 - Contact.tsx (Kontak): Menampilkan detail kontak (telepon, email), formulir pesan singkat, dan iframe Google Maps statis.

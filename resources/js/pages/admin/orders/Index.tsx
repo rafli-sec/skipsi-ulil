@@ -38,7 +38,7 @@ export default function Index({ orders }: { orders: Order[] }) {
         }
         
         const reviewUrl = `${window.location.origin}/review/${order.uuid}`;
-        const message = `Halo Bpk/Ibu ${order.nama_pelanggan},\n\nTerima kasih telah mempercayakan layanan ${order.service?.nama_layanan || 'kami'} kepada PT Aulia Mutiara Drilling.\n\nKarena pengerjaan telah selesai, mohon kesediaannya meluangkan waktu sebentar untuk memberikan ulasan pelayanan kami melalui tautan berikut:\n${reviewUrl}\n\nTerima kasih!`;
+        const message = `Halo Bpk/Ibu ${order.nama_pelanggan},\n\nTerima kasih telah mempercayakan layanan ${order.service?.nama_layanan || 'kami'} kepada CV. Aisyah Mutiara Drilling.\n\nKarena pengerjaan telah selesai, mohon kesediaannya meluangkan waktu sebentar untuk memberikan ulasan pelayanan kami melalui tautan berikut:\n${reviewUrl}\n\nTerima kasih!`;
         
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/${no_hp}?text=${encodedMessage}`, '_blank');

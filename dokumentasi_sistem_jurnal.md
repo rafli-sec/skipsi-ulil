@@ -1,4 +1,4 @@
-# Dokumentasi Sistem: Website Profil & Manajemen Jasa Sumur Bor (PT Aulia Mutiara Drilling)
+# Dokumentasi Sistem: Website Profil & Manajemen Jasa Sumur Bor (CV. Aisyah Mutiara Drilling)
 
 Sistem ini dirancang menggunakan arsitektur modern SPA (*Single Page Application*) dengan *stack* teknologi **Laravel (Backend)** dan **React.js + Inertia.js (Frontend)**, serta *styling* menggunakan **Tailwind CSS v4**. Sistem terbagi menjadi dua bagian utama: **Halaman Publik (Landing Page)** untuk pelanggan dan **Dashboard Admin** untuk pengelolaan konten.
 

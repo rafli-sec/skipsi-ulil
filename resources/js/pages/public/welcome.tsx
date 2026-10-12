@@ -86,7 +86,7 @@ export default function Welcome({ web_settings, orders, services, reviews }: Wel
                         KONTRAKTOR PENGEBORAN SULAWESI TENGGARA
                     </span>
                     <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                        {web_settings?.hero_title || 'PT Aulia Mutiara Drilling'}
+                        {web_settings?.hero_title || 'CV. Aisyah Mutiara Drilling'}
                     </h1>
                     <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto drop-shadow-md leading-relaxed">
                         Kami ahlinya pengerjaan sumur bor air tanah dan eksplorasi nikel. Didukung tim teknis lapangan yang handal dan armada mesin siap pakai.

@@ -10,7 +10,7 @@ export default function About() {
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">Tentang Kami</h1>
                     <p className="text-lg text-gray-600">
-                        Mengenal lebih dekat perjalanan dan visi misi PT Aulia Mutiara Drilling.
+                        Mengenal lebih dekat perjalanan dan visi misi CV. Aisyah Mutiara Drilling.
                     </p>
                 </div>
             </div>
@@ -21,7 +21,7 @@ export default function About() {
                     <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-2 border-blue-500 pb-2 inline-block">Sejarah Perusahaan</h2>
                     <div className="prose prose-lg text-gray-600 leading-relaxed max-w-none mt-4">
                         <p>
-                            PT Aulia Mutiara Drilling didirikan dengan tujuan untuk memberikan solusi terbaik di bidang jasa pengeboran sumur air tanah dan eksplorasi mineral, khususnya nikel, di wilayah Sulawesi Tenggara dan sekitarnya.
+                            CV. Aisyah Mutiara Drilling didirikan dengan tujuan untuk memberikan solusi terbaik di bidang jasa pengeboran sumur air tanah dan eksplorasi mineral, khususnya nikel, di wilayah Sulawesi Tenggara dan sekitarnya.
                         </p>
                         <p className="mt-4">
                             Berawal dari komitmen untuk mengatasi masalah ketersediaan air bersih dan mendukung industri pertambangan, kami terus berkembang dan berinvestasi pada sumber daya manusia yang handal serta peralatan berteknologi modern guna menjamin kualitas pekerjaan dan kepuasan pelanggan.

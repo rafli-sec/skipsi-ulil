@@ -199,7 +199,7 @@ export default function Checkout({ services, selectedServiceId, web_settings, fl
                                     {processing ? 'Memproses Pesanan...' : 'Kirim Pesanan Sekarang'}
                                 </Button>
                                 <p className="text-center text-sm text-gray-500 mt-4">
-                                    Dengan mengirim pesanan, Anda setuju untuk dihubungi oleh tim PT Aulia Mutiara Drilling.
+                                    Dengan mengirim pesanan, Anda setuju untuk dihubungi oleh tim CV. Aisyah Mutiara Drilling.
                                 </p>
                             </div>
                         </form>

@@ -59,7 +59,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-gray-900">Email</h3>
-                                        <p className="text-gray-600 mt-1">info@auliamutiaradrilling.com</p>
+                                        <p className="text-gray-600 mt-1">info@aisyahmutiaradrilling.com</p>
                                     </div>
                                 </div>
 
@@ -86,7 +86,7 @@ export default function Contact() {
                                 style={{ border: 0 }} 
                                 allowFullScreen={false} 
                                 loading="lazy" 
-                                title="Lokasi PT Aulia Mutiara Drilling"
+                                title="Lokasi CV. Aisyah Mutiara Drilling"
                             ></iframe>
                         </div>
                     </div>

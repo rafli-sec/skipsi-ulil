@@ -26,7 +26,7 @@ export default function AuthSplitLayout({
                     href={home()}
                     className="relative z-20 flex items-center gap-2 text-lg font-bold"
                 >
-                    <span>PT Aulia Mutiara Drilling</span>
+                    <span>CV. Aisyah Mutiara Drilling</span>
                 </Link>
                 
                 <div className="relative z-20 mt-auto">
@@ -34,7 +34,7 @@ export default function AuthSplitLayout({
                         <p className="text-lg">
                             "Berpengalaman 5+ tahun dalam menyediakan layanan pengeboran air tanah dan eksplorasi nikel dengan standar operasional tinggi bersama tim profesional."
                         </p>
-                        <footer className="text-sm text-matcha-light">PT Aulia Mutiara Drilling</footer>
+                        <footer className="text-sm text-matcha-light">CV. Aisyah Mutiara Drilling</footer>
                     </blockquote>
                 </div>
             </div>
@@ -44,7 +44,7 @@ export default function AuthSplitLayout({
                         href={home()}
                         className="relative z-20 flex items-center justify-center lg:hidden gap-2 font-bold text-xl"
                     >
-                        <span>PT Aulia Mutiara Drilling</span>
+                        <span>CV. Aisyah Mutiara Drilling</span>
                     </Link>
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
                         <h1 className="text-xl font-medium">{title}</h1>
