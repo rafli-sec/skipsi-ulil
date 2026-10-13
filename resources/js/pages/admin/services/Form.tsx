@@ -11,6 +11,9 @@ interface Service {
     nama_layanan: string;
     deskripsi: string;
     estimasi_durasi: string;
+    harga_ongkos_kerja?: string;
+    harga_terima_jadi?: string;
+    catatan_harga?: string;
 }
 
 export default function Form({ service }: { service?: Service }) {
@@ -20,6 +23,9 @@ export default function Form({ service }: { service?: Service }) {
         nama_layanan: service?.nama_layanan || '',
         deskripsi: service?.deskripsi || '',
         estimasi_durasi: service?.estimasi_durasi || '',
+        harga_ongkos_kerja: service?.harga_ongkos_kerja || '',
+        harga_terima_jadi: service?.harga_terima_jadi || '',
+        catatan_harga: service?.catatan_harga || '',
     });
 
     const submit = (e: React.FormEvent) => {
@@ -58,7 +64,7 @@ export default function Form({ service }: { service?: Service }) {
                                     id="nama_layanan"
                                     value={data.nama_layanan}
                                     onChange={(e) => setData('nama_layanan', e.target.value)}
-                                    placeholder="Contoh: Jasa Sumur Bor Dalam"
+                                    placeholder="Contoh: Jasa Sumur Bor"
                                 />
                                 <InputError message={errors.nama_layanan} />
                             </div>
@@ -69,10 +75,61 @@ export default function Form({ service }: { service?: Service }) {
                                     id="deskripsi"
                                     value={data.deskripsi}
                                     onChange={(e) => setData('deskripsi', e.target.value)}
-                                    rows={4}
+                                    rows={3}
                                     placeholder="Deskripsikan layanan ini..."
                                 />
                                 <InputError message={errors.deskripsi} />
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="harga_ongkos_kerja">
+                                        Paket 1: Ongkos Kerja (Opsional)
+                                    </Label>
+                                    <Input
+                                        id="harga_ongkos_kerja"
+                                        value={data.harga_ongkos_kerja}
+                                        onChange={(e) => setData('harga_ongkos_kerja', e.target.value)}
+                                        placeholder="Contoh: 8 - 15 Juta"
+                                    />
+                                    <p className="text-xs text-muted-foreground">
+                                        Khusus paket jasa saja (misal sumur bor kedalaman 20-60m).
+                                    </p>
+                                    <InputError message={errors.harga_ongkos_kerja} />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="harga_terima_jadi">
+                                        Paket 2: Terima Jadi (Opsional)
+                                    </Label>
+                                    <Input
+                                        id="harga_terima_jadi"
+                                        value={data.harga_terima_jadi}
+                                        onChange={(e) => setData('harga_terima_jadi', e.target.value)}
+                                        placeholder="Contoh: 17 - 45 Juta"
+                                    />
+                                    <p className="text-xs text-muted-foreground">
+                                        Paket lengkap jasa + material pipa dan mesin pompa.
+                                    </p>
+                                    <InputError message={errors.harga_terima_jadi} />
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <Label htmlFor="catatan_harga">
+                                    Catatan Penentuan Harga / Klausul Khusus
+                                </Label>
+                                <Textarea
+                                    id="catatan_harga"
+                                    value={data.catatan_harga}
+                                    onChange={(e) => setData('catatan_harga', e.target.value)}
+                                    rows={2}
+                                    placeholder="Contoh: Estimasi untuk kedalaman 20-60m. Kedalaman 60-100m biaya disesuaikan melalui survei lokasi."
+                                />
+                                <p className="text-xs text-muted-foreground">
+                                    Akan ditampilkan pada kotak catatan di halaman layanan publik.
+                                </p>
+                                <InputError message={errors.catatan_harga} />
                             </div>
 
                             <div className="space-y-2">
@@ -81,7 +138,7 @@ export default function Form({ service }: { service?: Service }) {
                                     id="estimasi_durasi"
                                     value={data.estimasi_durasi}
                                     onChange={(e) => setData('estimasi_durasi', e.target.value)}
-                                    placeholder="Contoh: 3-5 Hari"
+                                    placeholder="Contoh: 3-5 Hari atau 1-3 Bulan"
                                 />
                                 <InputError message={errors.estimasi_durasi} />
                             </div>

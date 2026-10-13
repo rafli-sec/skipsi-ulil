@@ -10,6 +10,9 @@ class Service extends Model
         'nama_layanan',
         'deskripsi',
         'estimasi_harga',
+        'harga_ongkos_kerja',
+        'harga_terima_jadi',
+        'catatan_harga',
         'estimasi_durasi',
         'jumlah_klik',
     ];

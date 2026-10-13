@@ -28,6 +28,9 @@ class ServiceController extends Controller
             'nama_layanan' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'estimasi_durasi' => 'required|string|max:255',
+            'harga_ongkos_kerja' => 'nullable|string|max:255',
+            'harga_terima_jadi' => 'nullable|string|max:255',
+            'catatan_harga' => 'nullable|string',
         ]);
 
         Service::create($validated);
@@ -48,6 +51,9 @@ class ServiceController extends Controller
             'nama_layanan' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'estimasi_durasi' => 'required|string|max:255',
+            'harga_ongkos_kerja' => 'nullable|string|max:255',
+            'harga_terima_jadi' => 'nullable|string|max:255',
+            'catatan_harga' => 'nullable|string',
         ]);
 
         $service->update($validated);

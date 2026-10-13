@@ -25,27 +25,40 @@ class DatabaseSeeder extends Seeder
         );
 
         // Default Services
-        \App\Models\Service::create([
-            'nama_layanan' => 'Jasa Sumur Bor',
-            'deskripsi' => 'Layanan pembuatan sumur bor air tanah untuk kebutuhan rumah tangga dan industri.',
-            'estimasi_harga' => 5000000,
-            'estimasi_durasi' => '3-5 Hari',
-        ]);
+        \App\Models\Service::updateOrCreate(
+            ['nama_layanan' => 'Jasa Sumur Bor'],
+            [
+                'deskripsi' => 'Layanan pembuatan sumur bor air tanah untuk kebutuhan rumah tangga dan industri dengan sistem kerja profesional.',
+                'estimasi_harga' => 8000000,
+                'estimasi_durasi' => '3-5 Hari',
+                'harga_ongkos_kerja' => '8 - 15 Juta',
+                'harga_terima_jadi' => '17 - 45 Juta',
+                'catatan_harga' => 'Harga di atas merupakan estimasi untuk kedalaman 20–60m tergantung kondisi medan tanah. Untuk kedalaman 60–100m atau medan batuan keras, biaya disesuaikan berdasarkan kesepakatan survei lokasi.',
+            ]
+        );
 
-        \App\Models\Service::create([
-            'nama_layanan' => 'Eksplorasi Nikel',
-            'deskripsi' => 'Layanan eksplorasi pertambangan nikel dengan tenaga profesional dan peralatan modern.',
-            'estimasi_harga' => 50000000,
-            'estimasi_durasi' => '1-3 Bulan',
-        ]);
+        \App\Models\Service::updateOrCreate(
+            ['nama_layanan' => 'Eksplorasi Nikel'],
+            [
+                'deskripsi' => 'Layanan eksplorasi pertambangan nikel, pemboran inti (core drilling), dan geoteknik dengan tenaga ahli bersertifikat.',
+                'estimasi_harga' => 50000000,
+                'estimasi_durasi' => '1-3 Bulan',
+                'harga_ongkos_kerja' => null,
+                'harga_terima_jadi' => null,
+                'catatan_harga' => 'Penetapan biaya dihitung spesifik berdasarkan volume kedalaman (meter run), titik koordinat konsesi, analisa batuan, dan jangka waktu operasional proyek (RAB).',
+            ]
+        );
 
         // Default Web Settings
-        \App\Models\WebSetting::create([
-            'hero_title' => 'Solusi Terbaik Jasa Sumur Bor & Eksplorasi',
-            'about_text' => 'Kami adalah penyedia jasa sumur bor dan eksplorasi nikel profesional dan terpercaya.',
-            'alamat_kontak' => 'Jl. Poros, Sulawesi Tenggara',
-            'no_wa_utama' => '6281234567890', // Dummy valid WA format
-        ]);
+        \App\Models\WebSetting::updateOrCreate(
+            ['id' => 1],
+            [
+                'hero_title' => 'Solusi Terbaik Jasa Sumur Bor & Eksplorasi',
+                'about_text' => 'Kami adalah penyedia jasa sumur bor dan eksplorasi nikel profesional dan terpercaya.',
+                'alamat_kontak' => 'Jl. Poros, Sulawesi Tenggara',
+                'no_wa_utama' => '087890622335',
+            ]
+        );
 
         // Dummy Orders
         // $order1 = \App\Models\Order::create([

@@ -8,6 +8,9 @@ interface Service {
     nama_layanan: string;
     deskripsi: string;
     estimasi_durasi: string;
+    harga_ongkos_kerja?: string;
+    harga_terima_jadi?: string;
+    catatan_harga?: string;
 }
 
 export default function Index({ services }: { services: Service[] }) {
@@ -42,7 +45,7 @@ export default function Index({ services }: { services: Service[] }) {
                             <thead className="[&_tr]:border-b">
                                 <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
                                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Nama Layanan</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Harga</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Skema Harga</th>
                                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Estimasi Durasi</th>
                                     <th className="h-12 px-4 text-right align-middle font-medium text-muted-foreground">Aksi</th>
                                 </tr>
@@ -57,7 +60,26 @@ export default function Index({ services }: { services: Service[] }) {
                                                     {service.deskripsi}
                                                 </div>
                                             </td>
-                                            <td className="p-4 align-middle text-emerald-600 font-medium">Konsultasi via WA</td>
+                                            <td className="p-4 align-middle">
+                                                {service.harga_ongkos_kerja || service.harga_terima_jadi ? (
+                                                    <div className="space-y-1 text-xs">
+                                                        {service.harga_ongkos_kerja && (
+                                                            <div className="text-gray-700">
+                                                                <span className="font-semibold text-gray-500">Ongkos Kerja:</span> {service.harga_ongkos_kerja}
+                                                            </div>
+                                                        )}
+                                                        {service.harga_terima_jadi && (
+                                                            <div className="text-forest font-medium">
+                                                                <span className="font-semibold text-emerald-800">Terima Jadi:</span> {service.harga_terima_jadi}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                                        Konsultasi via WA (RAB)
+                                                    </span>
+                                                )}
+                                            </td>
                                             <td className="p-4 align-middle">{service.estimasi_durasi}</td>
                                             <td className="p-4 text-right align-middle">
                                                 <div className="flex items-center justify-end gap-2">
